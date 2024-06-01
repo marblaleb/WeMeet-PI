@@ -1,0 +1,11 @@
+.about{
+
+    background-image: url("../../img/about.jpg");
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
+    height:50vh;
+    width:30vw;
+   
+  
+  }

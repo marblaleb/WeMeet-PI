@@ -1,0 +1,117 @@
+<!-- header-start -->
+<header>
+    <div class="header-area">
+        <div id="sticky-header" class="main-header-area bg-black" style="z-index: 100;">
+            <div class="container-fluid p-0">
+                <div class="row align-items-center justify-content-between no-gutters">
+                    <div class="col-xl-2 col-lg-2">
+                        <div class="logo-img">
+                            <a>
+                                <div class="logo"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8">
+                        <div class="main-menu  d-none d-lg-block">
+                            <nav>
+                                <ul id="navigation">
+
+                                  
+
+
+
+
+                                    @if(resLogin.login && resLogin.rol=="consumidor"){
+
+
+
+                                    <li><a routerLink="/perfil-consumidor/{{id_usuario}}">Mi perfil</a></li>
+
+                                    <li><a routerLink="/actividades">Eventos</a></li>
+
+
+                                    <li><a routerLink="/foro">Foro</a></li>
+                                    <li><a routerLink="/ofertantes-panel">Lista Ofertantes</a></li>
+
+
+
+
+
+
+                                    }@else if(resLogin.login && resLogin.rol=="ofertante"){
+
+
+                                    <li><a routerLink="/perfil-ofertante/{{id_usuario}}">Mi perfil</a></li>
+
+                                    <li><a routerLink="/reg-actividad">Publicar <i class="ti-angle-down"></i></a>
+                                        <ul class="submenu">
+                                            <li><a routerLink="/reg-actividad">Nuevo evento</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a routerLink="/foro">Foro</a></li>
+                                    <li><a routerLink="/contacto">Contacto</a></li>
+
+
+
+                                    }@else{
+
+                                    <li><a routerLink="/">Home</a></li>
+                                    <li><a routerLink="/about">Información</a></li>
+                                    <li><a routerLink="/contacto">Contacto</a></li>
+
+
+
+
+
+
+                                    }
+
+                                </ul>
+
+
+
+
+
+
+
+                            </nav>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 d-lg-flex align-items-center justify-content-between">
+
+
+
+                        @if(resLogin.login && (resLogin.rol=="ofertante" || resLogin.rol=="consumidor")){
+
+                        <div class="buy_ticket">
+                            <a href="#" class="boxed-btn-white" (click)="logOut()">Log out</a>
+                        </div>
+
+                        }
+
+                        @if(!(resLogin.login && (resLogin.rol=="ofertante" || resLogin.rol=="consumidor"))){
+
+                        <div class="buy_ticket">
+                            <a href="#" class="boxed-btn-white" routerLink="/login">Login Consumidor</a>
+                        </div>
+
+                        <div class="buy_ticket">
+                            <a href="#" class="boxed-btn-white" routerLink="/login-ofertante">Login Ofertante</a>
+                        </div>
+
+                        }
+
+
+
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header-end -->

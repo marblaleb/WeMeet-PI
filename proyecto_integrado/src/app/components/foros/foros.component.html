@@ -1,0 +1,57 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container" style="margin-top: 20vh;">
+<div class="row mt-5">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content animated fadeInRight">
+
+            <div class="ibox-content m-b-sm border-bottom">
+                <div class="p-xs">
+                    <div class="pull-left m-r-md">
+                        <i class="fa fa-globe text-navy mid-icon"></i>
+                    </div>
+                    <h2>Bienvenido a Forum WeMeet</h2>
+                    <span>Escribe tus dudas o sugerencias en los foros de tus actividades.</span>
+                </div>
+            </div>
+
+            <div class="ibox-content forum-container">
+
+                <div class="forum-title">
+                    <div class="pull-right forum-desc">
+                      
+                    </div>
+                    <h3>Lista de foros de tus actividades</h3>
+                </div>
+
+                @for (item of usuario.actividades; track $index) {                
+                
+                <div class="forum-item">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="forum-icon">
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <a href="forum_post.html" class="forum-item-title" routerLink="/foro-detalle/{{item.foro.id}}">{{item.foro.nombre}}</a>
+                            <div class="forum-sub-title">{{ item.descripcion.slice(0,10)}} </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                {{item.fecha | date}}
+                            </span>
+                            <div>
+                                <small>Fecha</small>
+                            </div>
+                        </div>
+                     
+                        
+                    </div>
+                </div>
+
+            }
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+</div>

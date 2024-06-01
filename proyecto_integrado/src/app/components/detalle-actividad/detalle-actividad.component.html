@@ -1,0 +1,68 @@
+<div class="event-model" style="margin-top: 5vh;">
+
+  <div class="portada"></div>
+
+  <div class="imagen"></div>
+  <div class="contenido">
+    <div class="titulo">
+      <h2 class="titulo-content">{{evento.nombre}}</h2>
+
+      <p>Organizador del evento: {{evento.ofertante.userName}}</p>
+
+      <p>Lugar del evento: {{evento.lugar}}</p>
+
+      @if (ofertante) {
+
+        <button type="button" class="btn btn-primary btn-lg" routerLink="/editar-actividad/{{id_actividad}}"
+        data-mdb-ripple-init>Modificar</button>
+
+        <button type="button" class="btn btn-danger btn-lg" (click)="EliminarAct()"
+        data-mdb-ripple-init>Eliminar</button>
+
+
+      }@else{
+
+      @if (!boton) {
+
+      <button type="button" class="btn btn-primary btn-lg" (click)="AnadirConsumidor()"
+        data-mdb-ripple-init>Unirse</button>
+      }@else {
+
+        <button type="button" class="btn btn-danger btn-lg" (click)="QuitarConsumidor()"
+        data-mdb-ripple-init>Cancelar</button>
+
+      }
+    }
+      <div id="map" style="width: 30vw;height: 20vw;margin-bottom: 2vw;;">
+
+      </div>
+    </div>
+
+
+
+    <div class="fecha">Fecha y Hora <p class="fecha-content">Fecha: {{evento.fecha | date}} <br> Hora: {{evento.hora}}
+      </p>
+    </div>
+    <div class="descripcion">Descripción <p class="descripcion-content"> {{evento.descripcion}}</p>
+    </div>
+    <div class="detalles">Detalles <p class="detalles-content">
+        Coste tarifa: {{evento.tarifa}} <br>
+        Duración aproximada: {{evento.duracion}} <br>
+        Dificultad: {{evento.dificultad}} <br>
+
+
+      </p>
+    </div>
+    <div class="autor">Participantes <p class="autor-content">
+        @for (item of evento.consumidor; track $index) {
+
+      <ul>
+        <li>{{item.userName}}</li>
+      </ul>
+
+      }
+      </p>
+    </div>
+  </div>
+
+</div>

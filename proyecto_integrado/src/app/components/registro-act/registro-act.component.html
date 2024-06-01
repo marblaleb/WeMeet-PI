@@ -1,0 +1,333 @@
+
+<section class="p-5 form-section  footer footer_bg_1">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-9">
+        <h1 class="form-header">Registra tu evento</h1>
+
+        @if(error){
+
+          <div class="alert alert-danger"> La actividad no se puede registrar.</div>
+
+        }
+
+        <form #actividadForm="ngForm">
+          <div class="card form-card">
+            <div class="card-body">
+
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Título</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="text" name="nombre" class="form-control form-control-lg" [(ngModel)]='evento.nombre' #nombre="ngModel" required />
+                  <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger"> El nombre no es válido </div>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Descripción</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <textarea class="form-control" name="descripcion" rows="3" placeholder="Fiesta en mi casa..." [(ngModel)]='evento.descripcion' #descripcion="ngModel" required></textarea>
+                  <div [hidden]="descripcion.valid || descripcion.pristine" class="alert alert-danger"> La descripcion no es válida </div>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Fecha</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="date" name="fecha" class="form-control form-control-lg" [(ngModel)]='evento.fecha' #fecha="ngModel" required />
+                  <div [hidden]="fecha.valid || fecha.pristine" class="alert alert-danger"> La fecha no es válida </div>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Hora</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="time" name="hora" class="form-control form-control-lg" [(ngModel)]='evento.hora' #hora="ngModel" required />
+                  <div [hidden]="hora.valid || hora.pristine" class="alert alert-danger"> La hora no es válida </div>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Lugar</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="text" name="lugar" class="form-control form-control-lg" [(ngModel)]='evento.lugar' #lugar="ngModel" required />
+                  <div [hidden]="lugar.valid || lugar.pristine" class="alert alert-danger"> El lugar no es válido </div>
+                </div>
+              </div>
+
+              <!-- <hr class="mx-n3">
+
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Categorías</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <select multiple name="categorias" class="form-control form-control-lg" [(ngModel)]="evento.categoria_id" #categoria_id="ngModel" required>
+
+                    <option>Ninguna</option>
+                    @for (categoria of categorias; track $index) {
+                                         
+                    <option [value]="categoria.id">{{ categoria.nombre }}</option>
+                    }
+                  </select>
+                  <div [hidden]="categoria_id.valid || categoria_id.pristine" class="alert alert-danger"> Selecciona al menos una categoría </div>
+                </div>
+              </div> -->
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Duración</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="number" name="duracion" class="form-control form-control-lg" placeholder="Duración aproximada" [(ngModel)]='evento.duracion' #duracion="ngModel" required />
+                  <div [hidden]="duracion.valid || duracion.pristine" class="alert alert-danger"> La duración no es válida </div>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Tarifa</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="number" name="tarifa" class="form-control form-control-lg" placeholder="La tarifa del evento" [(ngModel)]='evento.tarifa' #tarifa="ngModel" required />
+                  <div [hidden]="tarifa.valid || tarifa.pristine" class="alert alert-danger"> La tarifa no es válida </div>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="px-5 py-4">
+                <button type="submit" class="btn btn-primary btn-lg" (click)="registro_actividad()" [disabled]="!actividadForm.valid">Registrar</button>
+              </div>
+
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section class="p-5" style="background-color: #ffffff; margin-top: 15vh;">
+    <div class="container h-100 mt-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-9">
+  
+          <h1 class="text-white mb-4">Registra tu evento</h1>
+
+          <form #actividadForm="ngForm">
+  
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body">
+  
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Título</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                  <input type="text" name="nombre" class="form-control form-control-lg" [(ngModel)]='evento.nombre' #nombre="ngModel" />
+                  <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger"> El nombre no es válido </div>
+  
+                </div>
+              </div>
+  
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Descripción</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                    <textarea class="form-control" name="descripcion" rows="3" placeholder="Fiesta en mi casa..." [(ngModel)]='evento.descripcion' #descripcion="ngModel"></textarea> 
+                    <div [hidden]="descripcion.valid || descripcion.pristine" class="alert alert-danger"> La descripcion no es válida </div>
+                </div>
+              </div>
+  
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Fecha</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                    <input type="date" name="fecha" class="form-control form-control-lg" placeholder="La fecha del evento" [(ngModel)]='evento.fecha' #fecha="ngModel" />
+                    <div [hidden]="fecha.valid || fecha.pristine" class="alert alert-danger"> La fecha no es válida </div>
+  
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Hora</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                    <input type="text" name="hora" class="form-control form-control-lg" placeholder="La hora del evento" [(ngModel)]='evento.hora' #hora="ngModel" />
+                    <div [hidden]="hora.valid || hora.pristine" class="alert alert-danger"> La hora no es válida </div>
+  
+                </div>
+              </div>
+
+
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Lugar</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                    <input type="text" name="lugar" class="form-control form-control-lg" placeholder="El lugar del evento" [(ngModel)]='evento.lugar' #lugar="ngModel" />
+                    <div [hidden]="lugar.valid || lugar.pristine" class="alert alert-danger"> El lugar no es válido </div>
+  
+                </div>
+              </div>
+  
+        
+
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Duración</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                    <input type="number" name="duracion" class="form-control form-control-lg" placeholder="Duración aproximada" [(ngModel)]='evento.duracion' #duracion="ngModel" />
+                    <div [hidden]="duracion.valid || duracion.pristine" class="alert alert-danger"> La duración no es válida </div>
+  
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Tarifa</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                    <input type="number" name="tarifa" class="form-control form-control-lg" placeholder="La tarifa del evento" [(ngModel)]='evento.tarifa' #tarifa="ngModel" />
+                    <div [hidden]="tarifa.valid || tarifa.pristine" class="alert alert-danger"> La tarifa no es válida </div>
+  
+                </div>
+              </div>
+  
+              <hr class="mx-n3">
+  
+              <div class="px-5 py-4">
+                <button type="submit" class="btn btn-primary btn-lg" (click)="registro_actividad()" [disabled]="!actividadForm.valid" >Registrar Actividad</button>
+              </div>
+  
+            </div>
+          </div>
+        </form>
+  
+        </div>
+      </div>
+    </div>
+  </section> -->
+  
+
+
+
+        <!-- <hr class="mx-n3">
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Imagen</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                  <input class="form-control form-control-lg" id="formFileLg" type="file" />
+                  <div class="small text-muted mt-2">Sube tu imagen. Max file
+                    size 50 MB</div>
+  
+                </div>
+              </div> -->

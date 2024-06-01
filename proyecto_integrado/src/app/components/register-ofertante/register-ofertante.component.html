@@ -1,0 +1,176 @@
+
+<section class="vh-100" style="background-color: #eee; margin-top: 15vh;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Regístrate como Ofertante de Wemeet</p>
+
+                <form class="mx-1 mx-md-4" #registerForm="ngForm">
+
+                  @if(error){
+
+                  <div class="alert alert-danger"> El ofertante no se pudo registrar o está ya registrado </div>
+                  }
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="nombre" class="form-control" name="first" [(ngModel)]="user.nombre" #nombre="ngModel" required />
+                      <label class="form-label" for="nombre">Tu nombre</label>
+                    </div>
+                    <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger"> El nombre no es válido </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="apellidos" class="form-control" name="last" [(ngModel)]="user.apellidos" #apellidos="ngModel" required />
+                      <label class="form-label" for="apellidos">Tus apellidos</label>
+                    </div>
+                    <div [hidden]="apellidos.valid || apellidos.pristine" class="alert alert-danger"> Los apellidos no son válidos </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" id="email" class="form-control" name="email" [(ngModel)]="user.email" #email="ngModel" required email />
+                      <label class="form-label" for="email">Tu email</label>
+                    </div>
+                    <div [hidden]="email.valid || email.pristine" class="alert alert-danger"> El email no es válido </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-image fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="file" id="profileImage" class="form-control" (change)="onFileSelected($event)" accept="image/*" />
+                      <label class="form-label" for="profileImage">Tu imagen de perfil</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password" #passw="ngModel" required minlength="2" />
+                      <label class="form-label" for="password">Tu contraseña</label>
+                    </div>
+                    <div [hidden]="passw.valid || passw.pristine" class="alert alert-danger"> La contraseña no es válida </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" id="terms" required />
+                    <label class="form-check-label" for="terms">
+                      I agree all statements in <a href="#!">Terms of service</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="button" class="btn btn-primary btn-lg" (click)="onSubmit()" [disabled]="!registerForm.valid">Regístrate</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="vh-100" style="background-color: #eee; margin-top: 15vh;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+ 
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Regístrate como Ofertante de Wemeet</p>
+
+                <form class="mx-1 mx-md-4" #registerForm="ngForm">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" class="form-control" name="first" [(ngModel)]='user.nombre' #nombre="ngModel" />
+                      <label class="form-label" for="form3Example1c" >Tu nombre</label>
+                    </div>
+                    <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger"> El nombre no es válido </div>
+                  </div>
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text" id="form3Example1c" class="form-control" name="last" [(ngModel)]='user.apellidos' #apellidos="ngModel" />
+                        <label class="form-label" for="form3Example1c" >Tus apellidos</label>
+                      </div>
+                      <div [hidden]="apellidos.valid || apellidos.pristine" class="alert alert-danger"> Los apellidos no son válidos </div>
+                    </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" id="form3Example3c" class="form-control" name="email" [(ngModel)]='user.email' #email="ngModel" />
+                      <label class="form-label" for="form3Example3c" >Tu email</label>
+                    </div>
+                    <div [hidden]="email.valid || email.pristine" class="alert alert-danger"> El email no es válido </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="file" (change)="onFileSelected($event)" accept="image/*">
+                      <label class="form-label" for="form3Example3c">Tu imagen de perfil</label>
+                    </div>
+                    
+                  </div>  
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4c" name="password" class="form-control" [(ngModel)]='user.password' #passw="ngModel" />
+                      <label class="form-label" for="form3Example4c" >Tu contrasena</label>
+                    </div>
+                    <div [hidden]="passw.valid || passw.pristine" class="alert alert-danger"> La contrasena no es válida </div>
+                  </div>
+
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                    <label class="form-check-label" for="form2Example3">
+                      I agree all statements in <a href="#!">Terms of service</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="button" class="btn btn-primary btn-lg" (click)="onSubmit()" [disabled]="!registerForm.valid">Regístrate</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->

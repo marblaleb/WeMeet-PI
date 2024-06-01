@@ -1,0 +1,100 @@
+<body>
+    <section class="ftco-section" style="margin-top: 15vh;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Lista de ofertantes weemeet</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-wrap">
+                        <table class="table table-responsive-xl">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>Email</th>
+                                    <th>Nombre Usuario</th>
+                                    <th>Activo</th>
+                                    <th>Ofertas</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @for (item of ofertantes; track $index) {
+
+                                <tr class="alert" role="alert">
+                                   
+                                    <td class="d-flex align-items-center">
+                                        
+                                        <div class="pl-3 email">
+                                            <span>{{item.email}}</span>                                            
+                                        </div>
+                                    </td>
+                                    <td>{{item.userName}}</td>
+                                    <td class="status"><span class="active">{{item.activo}}</span></td>
+                                    <td>
+                                        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary" 
+                                        data-mdb-modal-init data-mdb-target="#staticBackdrop4" (click)="asignarIdOfertante(item.id)">
+                                            Enviar Oferta
+                                        </button>
+                                    </td>
+                                </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            @if (mostrarVentana) {
+
+            <div class="" tabindex="-1">
+                <div class="dialog d-flex justify-content-center">
+                    <div class="content w-75">
+                        <div class="header">
+                            <h5 class="title">Envíale tu oferta de evento</h5>
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn-close" data-mdb-dismiss="modal" (click)="cancelar()" aria-label="Close"></button>
+                        </div>
+                        <div class="body p-4">
+                            <form #ofertaForm="ngForm">
+                                <!-- Name input -->
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <input type="text" id="name4" name="titulo" class="form-control" [(ngModel)]="oferta.titulo" #titulo="ngModel" />
+                                    <label class="form-label" for="name4">Titulo</label>
+                                    <div [hidden]="titulo.valid || titulo.pristine" class="alert alert-danger"> El titulo no es válido </div>
+                                </div>
+            
+                             
+            
+                                <!-- textarea input -->
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <textarea id="textarea4" rows="4" name="descripcion" class="form-control" [(ngModel)]="oferta.descripcion" #descripcion="ngModel"></textarea>
+                                    <label class="form-label" for="textarea4">Descripción</label>
+                                    <div [hidden]="descripcion.valid || descripcion.pristine" class="alert alert-danger"> La descripción no es válida </div>
+                                </div>
+            
+                        
+            
+                                <!-- Submit button -->
+                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block" (click)="lanzarOferta()" [disabled]="!ofertaForm.valid">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+
+        </div>
+    </section>
+
+    
+
+</body>

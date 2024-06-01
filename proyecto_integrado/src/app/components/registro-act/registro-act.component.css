@@ -1,0 +1,14 @@
+.form-section {
+    background-color: #ffffff;
+    margin-top: 15vh;
+  }
+  .form-card {
+    border-radius: 15px;
+  }
+  .form-header {
+    color: white;
+    margin-bottom: 4rem;
+  }
+  .alert-danger {
+    margin-top: 0.5rem;
+  }

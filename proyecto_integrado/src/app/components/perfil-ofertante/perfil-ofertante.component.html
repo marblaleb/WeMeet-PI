@@ -1,0 +1,188 @@
+<section style="background-color: #eee; margin-top: 10vh;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{ofertante.userName}}</h5>
+            <p class="text-muted mb-1">Profesión: </p>
+           
+            <div class="d-flex justify-content-center mb-2">
+              <button type="button" class="btn btn-primary" routerLink="/editar-usuario/{{ofertante.id}}">Cambiar
+                datos</button>
+              <button type="button" class="btn btn-danger" (click)="borrarVentana()">Borrar
+                usuario</button>
+
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Nombre completo</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ofertante.nombre}} {{ofertante.apellidos}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ofertante.email}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Teléfono</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ofertante.telefono}}</p>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Direccion</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ofertante.ciudad}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- VENTANA BORRAR -->
+
+@if(borrar){
+
+  <div id="modal1" class="modalmask">
+    <div class="modalbox movedown">
+        <a (click)="borrarVentana()" class="close">X</a>
+        <h2>Borrar Perfil</h2>
+        <p>¿Estás seguro de que deseas borrar tu perfil?</p>
+       
+        <button type="button" class="btn btn-secondary" (click)="borrarVentana()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="borrarUsuario()">Borrar</button>
+        
+       
+    </div>
+
+        
+      
+    
+  </div>
+  
+  }
+
+
+  
+
+@if(ofertante.actividades && ofertante.actividades.length>0) {
+
+<div class="event_area plus_padding">
+  <h1 class="m-5 d-none d-lg-block">Tus eventos</h1>
+  <div class="container">
+
+    <div class="double_line">
+
+      @for (e of ofertante.actividades; track $index) {
+
+      <div class="row">
+        <div class="col-xl-3 col-lg-3">
+
+          <div class="date">
+            <h3>{{e.fecha | date}}</h3>
+          </div>
+        </div>
+        <div class="col-xl-9 col-lg-9">
+          <div class="single_speaker">
+            <img src="img/speakers/seaker1.png" alt="">
+            <div class="speaker-name">
+              <div class="heading d-flex justify-content-between align-items-center">
+                <span>{{e.nombre}}</span>
+                <div class="time">
+                  Hora: {{e.hora}}
+                </div>
+              </div>
+              <p>Evento creado por: {{e.ofertante.userName}}</p>
+            </div>
+            <a routerLink="/actividad-detalle/{{e.id}}" class="boxed-btn-red">Ver en detalle</a>
+          </div>
+
+        </div>
+      </div>
+
+
+      }
+
+
+    </div>
+  </div>
+  </div>
+  }
+
+
+  @if(ofertas) {
+  <div class="event_area plus_padding">
+    <h1 class="m-5 d-none d-lg-block">Ofertas de usuarios</h1>
+    <div class="container">
+
+      <div class="double_line">
+
+        @for (e of ofertas; track $index) {
+
+        <div class="row">
+          <div class="col-xl-3 col-lg-3">
+
+            <div class="date">
+              <h3>{{e.titulo}}</h3>
+            </div>
+          </div>
+          <div class="col-xl-9 col-lg-9">
+            <div class="single_speaker">
+              <img src="img/speakers/seaker1.png" alt="">
+              <div class="speaker-name">
+                <div class="heading d-flex justify-content-between align-items-center">
+                  <span>{{e.descripcion}}</span>
+
+                </div>
+                <p>Oferta propuesta por: {{e.consumidor.userName}}</p>
+              </div>
+              <a (click)="aceptar()" class="boxed-btn-red">Aceptar Oferta</a>
+            </div>
+
+          </div>
+        </div>
+
+
+        }
+
+
+      </div>
+    </div>
+  </div>
+
+}
