@@ -33,7 +33,8 @@ export class PerfilOfertanteComponent {
   })
 
   borrar: boolean = false;
-  id: number = this.ruta2.snapshot.params["id"]
+  // id: number = this.ruta2.snapshot.params["id"]
+  id: number = localStorage["id"]
 
   constructor(private pajax: OfertanteServiceService, private nav: NavServiceService, private ruta: Router, private ruta2: ActivatedRoute, private peticion: OfertaServiceService) {
 

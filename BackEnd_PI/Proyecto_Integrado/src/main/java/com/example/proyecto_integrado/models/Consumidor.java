@@ -33,7 +33,7 @@ public class Consumidor extends Usuario implements Serializable {
 
 
     @OneToMany(mappedBy = "consumidor", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JsonManagedReference
+    @JsonIgnore
     private Set<Ofertas> ofertas = new HashSet<>();
 
     @ManyToMany(mappedBy = "consumidores")

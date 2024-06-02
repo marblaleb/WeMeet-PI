@@ -97,8 +97,8 @@ public class SecurityConfiguration {
         .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
         .authenticationProvider(authenticationProvider)
         .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-        .formLogin(form -> form.loginPage("/login").permitAll())
-        .logout(logout -> logout.logoutUrl("/logout").permitAll())
+        .formLogin(form -> form.loginPage("").permitAll())
+        .logout(logout -> logout.logoutUrl("").permitAll())
         .httpBasic(withDefaults());
     http.csrf(AbstractHttpConfigurer::disable);
     return http.build();

@@ -68,4 +68,20 @@ public class MensajeDTO {
     public void setForo_id(Long foro_id) {
         this.foro_id = foro_id;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Foro getForo() {
+        return foro;
+    }
+
+    public void setForo(Foro foro) {
+        this.foro = foro;
+    }
 }

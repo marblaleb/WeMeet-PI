@@ -20,7 +20,8 @@ export class PerfilConsumidorComponent {
 
   consumidor: Consumidor = {} as Consumidor
   borrar: boolean = false;
-  id: number = this.ruta2.snapshot.params["id"]
+  // id: number = this.ruta2.snapshot.params["id"]
+  id: number = localStorage["id"]
 
   public resLogin$?: Observable<any>;
   public resLogin = ({

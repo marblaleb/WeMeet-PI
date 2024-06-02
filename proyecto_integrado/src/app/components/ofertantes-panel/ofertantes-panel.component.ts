@@ -20,7 +20,9 @@ export class OfertantesPanelComponent {
   mostrarVentana:boolean=false;
   oferta:Oferta={} as Oferta;
 
-  public id = this.ruta2.snapshot.params["id"]
+  // public id = this.ruta2.snapshot.params["id"]
+
+  public id = localStorage["id"];
 
   constructor(private pajax: OfertanteServiceService, private ruta: Router, private ruta2: ActivatedRoute, private ofertaS: OfertaServiceService) {
 

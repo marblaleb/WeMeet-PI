@@ -99,11 +99,16 @@ export class ForoDetalleComponent {
     this.mensajeNuevo.usuario_id=this.id_usuario;
     this.mensajeNuevo.titulo="Mensaje"
     
+    
+    
     this.pajax.crearMensaje(this.mensajeNuevo).subscribe({
 
       next: res=>{
         console.log(res);
-        this.mensajes.push(res);
+      
+        
+        this.mensajes.push(res)
+      
       }
     })
 

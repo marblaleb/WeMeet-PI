@@ -1,6 +1,7 @@
 package com.example.proyecto_integrado.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 
@@ -23,12 +24,13 @@ public class Ofertas {
 
     @ManyToOne
     @JoinColumn(name = "consumidor", nullable = false)
-//    @JsonBackReference
+
     private Consumidor consumidor;
 
     @ManyToOne
     @JoinColumn(name = "ofertante", nullable = false)
-//    @JsonBackReference
+
+
     private Ofertantes ofertante;
 
 

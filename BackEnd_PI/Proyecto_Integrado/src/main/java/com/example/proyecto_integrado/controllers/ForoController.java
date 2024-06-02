@@ -89,6 +89,9 @@ public class ForoController {
 
             Mensaje saved = mensajeService.insertMensaje(mensaje);
 
+            mensajeDTO.setUsuario(usuario.get());
+            mensajeDTO.setForo(foro.get());
+
 
             return new ResponseEntity<>(mensajeDTO, HttpStatus.CREATED);
 
