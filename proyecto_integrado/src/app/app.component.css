@@ -1,0 +1,73 @@
+.slider_bg_1 {
+    background-image: url(./img/banner/banner_1.png);
+  }
+  
+  /* line 4, C:/Users/SPN Graphics/Desktop/CL September/209/HTML/scss/_slider.scss */
+  .slider_area {
+    background-size: cover;
+    background-position: center  center;
+    background-repeat: no-repeat;
+    padding-top: 300px;
+    padding-bottom: 100px;
+  }
+
+  .slider_area .position_relv {
+    position: relative;
+  }
+  
+  /* line 22, C:/Users/SPN Graphics/Desktop/CL September/209/HTML/scss/_slider.scss */
+  .slider_area .title_text {
+    position: relative;
+    margin-bottom: 213px;
+    z-index: 3;
+    padding: 55px 8px 12px 0px;
+  }
+
+
+  .slider_area .title_text.title_text2 {
+    margin-bottom: 60px;
+    padding: 55px 8px 25px 0px;
+  }
+  
+  @media (max-width: 767px) {
+    /* line 36, C:/Users/SPN Graphics/Desktop/CL September/209/HTML/scss/_slider.scss */
+    .slider_area .title_text.title_text2 {
+      margin-bottom: 0;
+      padding: 0;
+    }
+  }
+  
+  /* line 43, C:/Users/SPN Graphics/Desktop/CL September/209/HTML/scss/_slider.scss */
+  .slider_area .title_text.title_text2::before {
+    display: none;
+  }
+  
+  /* line 46, C:/Users/SPN Graphics/Desktop/CL September/209/HTML/scss/_slider.scss */
+  .slider_area .title_text.title_text2:after {
+    position: absolute;
+    background-image: url(./img/banner/path2.png);
+    content: "";
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+    left: -14.5%;
+    width: 120%;
+    height: 120%;
+    top: -7%;
+    opacity: 0.6;
+  }
+
+
+  .footer_bg_1 {
+    background-image: url(./img/banner/footer_bg_1.png);
+  }
+  .footer {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: -99;
+  }
+
+  
